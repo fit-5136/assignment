@@ -1,5 +1,7 @@
+from print_revenue import *
 from Login import *
-from Logout import *
+import Logout
+
 
 def display_home_menu(user):
     if user.get_emp_type() == "Owner":
@@ -33,11 +35,10 @@ def display_home_menu(user):
                 print("[Test] option 2 selected")
                 x = 1
             elif option == "5":
-                # view_report()
-                print("[Test] option 5 selected")
+                revenue_report(user)
                 x = 1
             elif option == "6":
-                logout(user)
+                Logout.logout(user)
                 x = 1
             else:
                 print("!!! [ERROR] Please enter a number between 1 and 6 !!!")
@@ -72,7 +73,7 @@ def display_home_menu(user):
                 print("[Test] option 2 selected")
                 x = 1
             elif option == "5":
-                logout(user)
+                Logout.logout(user)
                 x = 1
             else:
                 print("!!! [ERROR] Please enter a number between 1 and 5 !!!")
@@ -106,7 +107,7 @@ def display_home_menu(user):
                 print("[Test] option 2 selected")
                 x = 1
             elif option == "4":
-                logout(user)
+                Logout.logout(user)
                 x = 1
             else:
                 print("!!! [ERROR] Please enter a number between 1 and 4 !!!")
