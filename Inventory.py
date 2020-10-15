@@ -52,6 +52,9 @@ class Inventory:
         self.store_id = store_id
         self.item_list = {}
 
+    def get_item_list(self):
+        return self.item_list
+
     def add_item(self, item_id, name, price, item_type, quantity, date_inventory_added):
         if name not in self.item_list.keys():
             self.item_list[name] = Item(item_id, name, price, item_type, quantity, date_inventory_added)
