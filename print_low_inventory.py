@@ -25,6 +25,6 @@ def low_inventory_report():
 
 
 if __name__ == '__main__':
-    low_inventory_report(1)
+    low_inventory_report()
 
 
