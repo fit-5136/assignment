@@ -1,8 +1,9 @@
 class Item:
-    def __init__(self, item_id, name, price, quantity, date_inventory_added):
+    def __init__(self, item_id, name, price, item_type, quantity, date_inventory_added):
         self.item_id = item_id
         self.name = name
         self.price = price
+        self.item_type = item_type
         self.quantity = quantity
         self.date_inventory_added = date_inventory_added
 
@@ -21,6 +22,12 @@ class Item:
     def get_quantity(self):
         return self.quantity
 
+    def get_type(self):
+        return self.item_type
+
+    def print_item(self):
+        print(self.name + "  " + str(self.price) + " " + str(self.quantity) + "  " + self.date_inventory_added)
+
     def set_date_inventory_added(self, date_inventory_added):
         self.date_inventory_added = date_inventory_added
 
@@ -36,32 +43,53 @@ class Item:
     def set_quantity(self, quantity):
         self.quantity = quantity
 
+    def set_type(self, type):
+        self.item_type = type
+
 
 class Inventory:
     def __init__(self, store_id):
         self.store_id = store_id
         self.item_list = {}
 
-    def add_item(self, item_id, name, price, quantity, date_inventory_added):
+    def add_item(self, item_id, name, price, item_type, quantity, date_inventory_added):
         if name not in self.item_list.keys():
-            self.item_list[name] = Item(item_id, name, price, quantity, date_inventory_added)
+            self.item_list[name] = Item(item_id, name, price, item_type, quantity, date_inventory_added)
         else:
             print('Item already exists')
+
+    def print_item_list(self):
+        for i in self.item_list.keys():
+            self.item_list[i].print_item()
 
     def update_item(self, name, quantity, date_inventory_added):
         self.item_list[name].set_quantity(self.item_list[name].get_quantity() + quantity)
         self.item_list[name].set_date_invetory(date_inventory_added)
 
-    def get_item_list(self):
-        return self.item_list
+
+def load_inventory():
+    list_of_inventory = []
+    for i in range(1, 11):
+        list_of_inventory.append(Inventory(i+1))
+
+    data = open("Inventory.txt", "r")
+    lines = data.readlines()
+    data.close()
+
+    for line in lines:
+        item = line.split("/")
+        [store_id, item_id, name, price, item_type, quantity, date_inventory_added] = item
+        if store_id == 0:
+            for i in range(0, 10):
+                list_of_inventory[i].add_item(item_id, name, float(price), item_type, int(quantity), date_inventory_added)
+        else:
+            list_of_inventory[int(store_id)-1].add_item(item_id, name, float(price), item_type, int(quantity), date_inventory_added)
+
+    return list_of_inventory
 
 
 if __name__ == '__main__':
-    I = Inventory(1)
-    I.add_item(1, 'xsc', 2, 23, 45)
-    I.add_item(1, 'xsc', 2, 23, 45)
-    I.add_item(2, 'ssc', 2, 24, 25)
-    print(I.get_item_list().keys())
-    print(I.get_item_list()['xsc'].get_quantity())
+    list_of_inventory = load_inventory()
+    list_of_inventory[5-1].print_item_list()
 
 
