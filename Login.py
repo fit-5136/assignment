@@ -21,9 +21,11 @@ def login(list_of_user):
                 else:
                     count_valid_id += 1
                     print("!!! [Error] Incorrect Password !!!")
+                    login(list_of_user)
             else:
                 if user.get_emp_id() == list_of_user[-1].get_emp_id() and count_valid_id == 0:
                     print("!!! [Error] Invalid Employee ID !!!")
+                    login(list_of_user)
 
 
 def select_store(user):
