@@ -35,7 +35,8 @@ def select_store(user):
             if 1 <= int(input_value) <= 10:
                 store_no = int(input_value)
                 user.set_emp_store_no(store_no)
-                print("*** Selection Successful *** Store " + str(user.get_emp_store_no()))
+                print("*** Selection Successful ***")
+                print("*** Store " + str(user.get_emp_store_no()) + " is selected ***")
                 break
             else:
                 print("!!! [Error] Please enter a number between 1 and 10 !!!")
