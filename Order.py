@@ -114,7 +114,7 @@ class Order:
 
 
 def load_orders():
-    data = open("Orders", "r")
+    data = open("Orders.txt", "r")
     lines = data.readlines()
     data.close()
 
