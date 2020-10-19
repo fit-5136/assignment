@@ -1,8 +1,8 @@
-10/I-001/white bread/3/food/34/09-25-2020/6
-3/I-002/cucumber  Sandwich/5/food/26/09-19-2020/8
-3/I-003/burger/5/food/25/09-09-2020/3
-5/I-004/cola/4/food/32/09-25-2020/8
-7/I-005/hot dog/2/food/31/09-10-2020/2
+0/I-001/white bread/3/food/34/09-25-2020/6
+0/I-002/cucumber Sandwich/5/food/6/09-19-2020/8
+0/I-003/burger/5/food/25/09-09-2020/3
+0/I-004/cola/4/food/2/09-25-2020/8
+0/I-005/hot dog/2/food/31/09-10-2020/2
 0/I-006/coffee1/4/coffee/21/09-21-2020/1
 0/I-007/coffee2/4/coffee/21/09-21-2020/2
 0/I-008/coffee3/4/coffee/21/09-21-2020/3

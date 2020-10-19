@@ -16,12 +16,15 @@ def low_inventory_report():
             print("!!! [Error] Please enter a number between 1 and 10 !!!")
 
     list_of_inventory = load_inventory()
-    low_inventory_list = []
+    item_list = list_of_inventory[select_store - 1].get_item_list()
 
-    for inventory in list_of_inventory:
-        if inventory.get_quantity() < 10 and inventory.get_store_id() == select_store:
-            low_inventory_list.append((inventory.get_name(), inventory.get_quantity()))
-    print(list_of_inventory)
+    low_inventory_list = {}
+    for item in item_list.keys():
+        if item_list[item].get_quantity() < 10:
+            low_inventory_list[item_list[item].get_name()] = item_list[item].get_quantity()
+
+    for x, y in low_inventory_list.items():
+        print(x, y)
 
 
 if __name__ == '__main__':
